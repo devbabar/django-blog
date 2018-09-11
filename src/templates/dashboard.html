@@ -1,0 +1,90 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<!-- Messages -->
+<div class="container message-div col-lg-8 col-lg-offset-2">
+	<h1 style="color:yellow;">{% include 'messages_display.html' %}</h1>
+</div>
+
+<div class="dashboard-welcome-heading">
+	<div>
+		<h1>{{request.user|title}}, <br> Welcome to Dashboard...</h1>
+	</div>
+	<section class="dashboard-option-btn">
+		<div>
+			<a id="draft-post" data-href="{% url 'posts:dashboard-draft' user.id %}" class="btn btn-block">Draft Post</a>
+		</div>
+		<div>
+			<a id="future-post" data-href="{% url 'posts:dashboard-future' user.id %}" class="btn btn-block">Future Post</a>
+		</div>
+		<div>
+			<a id="create-post" data-href="{% url 'posts:dashboard-create' user.id %}" class="btn btn-block">Create Post</a>
+		</div>
+	</section>
+</div>
+<div class="status-container col-lg-4 col-md-4 col-sm-5">
+	<h3 id="status"></h3>
+</div>
+
+<div class='create-container col-sm-6 col-sm-offset-3'>
+	<h1>Create Form</h1>
+	<form id="create-post-form" method='POST' action="{% url 'posts:dashboard-create' user.id %}" redirect="{% url 'posts:list' %}"enctype='multipart/form-data'>
+		{% csrf_token %}
+		{{form.as_p}}
+		<input id="submit-btn" type='submit'  class='btn btn-default' value='Create Post'>
+	</form>
+</div>
+<div id="content-display">
+	<div class='main-container col-sm-8 col-sm-offset-2'>
+		<div id="update_div"></div>
+		{% for i in owner_posts %}
+		<div class="row">			
+			<div class="col-sm-12">
+			    <div class="thumbnail">
+
+					{% if i.image %}
+						<img src="{{ i.image.url }}" class='img-responsive'>
+					{% else %}
+						<!-- if there is no image -->
+						<img src="{% static 'sample_images/missing_image.png'%}">
+					{% endif%}
+
+				    <div class="caption">
+				    	{% if i.draft %}
+				    		<h2><span style="color:red;">Draft</span></h2>
+				    	{% elif i.publish > today %}
+				    		<h2><span style="color:red;">Future Post</span></h2>
+				    	{% endif %}
+				    	<h3><a href="{{ i.get_absolute_url }}">{{i.title|title}}</a><br>
+				    		<small>{{i.publish}}</small>
+				    	</h3>
+				     
+						{% if instance.user.get_full_name %}
+							<p>Author: {{ i.user.get_full_name|title}}</p>
+						{% else %}
+							<p>Author: {{ i.user|title}}</p>
+						{% endif %}
+						<hr>
+				        <p>{{i.content|linebreaks|truncatechars:120}}</p>
+				        <hr>
+				        <div>
+					        <a href="{{ i.get_absolute_url }}" class="btn btn-primary" role="button">View</a>
+					        <a href="{% url 'posts:update' user.id i.slug %}" class="btn btn-primary edit-post" role="button">Edit</a>
+					        <a href="{% url 'posts:delete' i.slug %}" class="btn btn-danger delete-post" role="button">Delete</a>
+				    	</div>
+				    </div>
+			    </div>
+			</div>
+		<hr>
+		</div>		
+		{% endfor%}	
+	</div>
+</div>
+<div id="backtotop">
+	Back To Top!
+</div>
+
+{% endblock %}

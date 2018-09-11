@@ -1,0 +1,282 @@
+/*----------------- Navbar ------------start*/
+
+.navbar-right {
+    margin-right: 0px!important;
+}
+
+.navbar-brand{
+	font-family: "Comic Sans MS",cursive, sans-serif;
+}
+/*--------------------------------------ends*/
+
+
+/*----------------- background image ------------start*/
+body, html{
+	height: 100%;
+}
+
+/*----One Method To Set The Background Image----*/
+/*.bg{
+	background-image: url("sample_images/paris1.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}*/
+
+body{
+	background: url("sample_images/paris1.jpg") no-repeat center center;
+	background-size: cover;
+
+	min-height: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+
+/*----------------- background image------------ends*/
+
+
+/*----------------- Post_list.html ------------start*/
+
+.main-container{
+	top: 500px;	
+}
+
+
+.thumbnail{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.thumbnail img{
+	width: 100%;
+	height: 480px;
+}
+
+.default-img{
+	width: 100%;
+	height: 480px;
+}
+
+/*h1{
+	color: #337ab7;
+}*/
+
+.main-heading h1{
+	color: #fff;
+	font-family: "Comic Sans MS",cursive, sans-serif;
+	font-size: 100px;
+	text-align: center;
+
+	
+}
+
+.main-heading{
+	top: 200px;
+	position: relative;
+}
+
+
+
+/*----------------- Post_list.html  ------------ends*/
+
+/*-------------------update_form.html--------------start*/
+.update-container{
+	top: 200px;
+	background-color: #fff;
+	padding:20px;
+}
+
+/*-------------------update_form.html --------------ends*/
+
+/*-------------------dashboard.html --------------ends*/
+.dashboard-welcome-heading h1{
+	color: #fff;
+	font-family: "Comic Sans MS",cursive, sans-serif;
+	font-size: 100px;
+	text-align: center;
+}
+
+.dashboard-welcome-heading{
+	top: 400px;
+	position: relative;
+}
+.dashboard-option-btn .btn-block{
+	background-color: #ff8533 !important;
+	width: 20%;
+	float: left;
+	margin: 0 20px 0 0;
+	/*overflow-x:hidden;*/
+}
+
+.dashboard-welcome-heading section{
+	left: 18%;
+	position: relative;
+}
+
+.dashboard-option-btn a{
+	color: #fff;
+	font-weight: 900;
+	font-size: 20px;
+	letter-spacing: 3px;
+}
+
+.status-container h3{
+	color: #fff;
+	text-align: center;
+	font-weight: 900;
+	font-size: 30px;
+	letter-spacing: 5px;
+	margin: 8px;
+}
+
+.status-container{
+	background-color: #ff8533 !important;
+	top: 460px !important;
+	/*margin-top: 400px;*/
+	position: relative;
+	right: 33%;
+}
+
+
+/*-------------------dashboard.html --------------ends*/
+
+#backtotop{
+  padding: 5px 3px;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  display: none; 
+}
+
+/*----------------- post_detail.html ------------start*/
+
+.detail-container{
+	top: 600px;
+	background-color: #fff;
+	padding:20px;
+
+}
+
+
+/*----------------- post_detail.html ------------ends*/
+
+/*----------------- post_create.html ------------start*/
+.create-container{
+	top: 520px;
+	background-color: #fff;
+	padding:20px;
+	border:5px #ff8533 solid;
+	margin-bottom: 100px;
+}
+
+.create-container h1{
+	text-align: center;
+	color: #ff8533;
+	font: 80px;
+	font-family: "Comic Sans MS",cursive, sans-serif;
+	font-weight: 900;
+	letter-spacing: 3px;
+}
+
+/*----------------- post_create.html ------------ends*/
+
+
+
+/*----------------- Signup.html ------------start*/
+.signup-container{
+	top: 200px;
+	background-color: #fff;
+	padding:20px;
+}
+
+.signup-container .btn-block{
+	background-color: #ff8533 !important;
+	margin-top: 10px;
+
+}
+
+.signup-container h1{
+	text-align: center;
+	color: #ff8533;
+}
+
+/*----------------- Signup.html ------------ends*/
+
+/*----------------- login.html ------------start*/
+
+.login-container{
+	top: 250px;
+	background-color: #fff;
+	padding:20px;
+}
+
+.login-container .btn-block{
+	background-color: #ff8533 !important;
+	margin-top: 10px;
+
+}
+
+.login-container h1{
+	text-align: center;
+	color: #ff8533;
+}
+
+/*----------------- login.html ------------ends*/
+
+
+/*--------------JQuery datepicker-----------start*/
+
+
+
+.ui-datepicker{
+	width: 300px;
+	color: #ff8533!important;
+	background-color: black !important;
+	font-size: 20px;
+	letter-spacing: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.ui-state-default {
+	color: #fff !important;
+}
+
+/*--------------JQuery datepicker ------------ends*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

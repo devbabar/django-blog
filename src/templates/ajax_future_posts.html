@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<div class="container message-div col-lg-6 col-lg-offset-3">
+	<h1 style="color:yellow;">{% include 'messages_display.html' %}</h1>
+</div>
+<div id="content-display">
+	<div class='main-container col-sm-8 col-sm-offset-2'>
+		{% for i in future_posts %}
+		<div class="row">			
+			<div class="col-sm-12">
+			    <div class="thumbnail">
+
+					{% if i.image %}
+						<img src="{{ i.image.url }}" class='img-responsive'>
+					{% else %}
+						<!-- if there is no image -->
+						<img src="{% static 'sample_images/missing_image.png'%}">
+					{% endif%}
+
+				    <div class="caption">
+				    	<h2><span style="color:red;">Future Post</span></h2>
+				    	<h3><a href="{{ i.get_absolute_url }}">{{i.title|title}}</a><br>
+				    		<small>{{i.publish}}</small>
+				    	</h3>
+						{% if instance.user.get_full_name %}
+							<p>Author: {{ i.user.get_full_name|title}}</p>
+						{% else %}
+							<p>Author: {{ i.user|title}}</p>
+						{% endif %}
+						<hr>
+				        <p>{{i.content|linebreaks|truncatechars:120}}</p>
+				        <hr>
+				         <div>
+					        <a href="{{ i.get_absolute_url }}" class="btn btn-primary" role="button">View</a>
+					        <a href="{% url 'posts:update' user.id i.slug %}" class="btn btn-primary" role="button">Edit</a>
+					        <a href="{% url 'posts:delete' i.slug %}" class="btn btn-danger" role="button">Delete</a>
+				    	</div>
+				    </div>
+			    </div>
+			</div>
+		<hr>
+		</div>		
+		{% endfor%}	
+	</div>
+</div>
+<div id="backtotop">
+	Back To Top!
+</div>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content%}
+
+<div class="main-heading">
+	<h1>Let's Share it...</h1>
+</div>
+
+<div class="container message-div col-lg-6 col-lg-offset-3">
+	<h1 style="color:yellow;">{% include 'messages_display.html' %}</h1>
+</div>
+
+<div class='main-container col-sm-8 col-sm-offset-2'>
+	
+	{% for i in object_list %}
+	<div class="row">			
+		<div class="col-sm-12">
+		    <div class="thumbnail">
+
+		    	<!-- if there is no image -->
+				{% if i.image %}
+					<img src="{{ i.image.url }}" class='img-responsive'>
+				{% else %}
+					<!-- if there is no image -->
+					<img src="{% static 'sample_images/missing_image.png'%}">
+				{% endif%}
+
+			    <div class="caption">
+			    	{% if i.draft %}<h3>Draft</h3>{% endif %}{% if i.publish > today %}<h3>Future Post</h3>{% endif %}
+			    	<h3><a href="{{ i.get_absolute_url }}">{{i.title|title}}</a><br>
+			    		<small>{{i.publish}}</small>
+			    	</h3>
+			        
+					{% if instance.user.get_full_name %}
+						<p>Author: {{ i.user.get_full_name|title}}</p>
+					{% else %}
+						<p>Author: {{ i.user|title}}</p>
+					{% endif %}
+
+					<hr>
+			        	<p>{{i.content|linebreaks|truncatechars:120}}</p>
+			        <hr>
+			        <p><a href="{{ i.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+			    </div>
+		    </div>
+		</div>
+	<hr>
+	</div>		
+	{% endfor%}			
+</div>
+<div id="backtotop">
+	Back To Top!
+</div>
+{% endblock %}
+

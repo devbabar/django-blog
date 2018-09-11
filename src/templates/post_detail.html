@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block head_title %}{{instance.title}} | {{block.super}}{% endblock head_title %}
+
+{% block content%}
+
+<div>
+	<h1 style="color:yellow;">{% include 'messages_display.html' %}</h1>
+</div>
+
+<div class='detail-container col-sm-8 col-sm-offset-2'>
+	
+	
+	{% if instance.image %}
+		<img src="{{ instance.image.url }}" class='img-responsive'>
+	{% else %}
+		<!-- if there is no image -->
+		<img class="default-img" src="{% static 'sample_images/missing_image.png'%}">
+	{% endif%}
+
+		<h1>{{title|title}}<br> 
+			<small>
+				<!-- check if instance in a draft mode -->
+				{% if instance.draft %}
+					<span style="color:red;">Draft</span>
+				{% elif instance.publish > today %}
+					<span style="color:red;">Future Post</span>
+			    {% endif %}
+				{{instance.publish}}
+			</small>
+		</h1>
+
+	<!-- check if user has full name else only display first name-->
+		{% if instance.user.get_full_name %}
+			<p>Author: {{ instance.user.get_full_name|title}}</p>
+		{% else %}
+			<p>Author: {{ instance.user|title}}</p>
+		{% endif %}
+
+	<hr>
+	<div class='row'>
+		<div class='col-sm-12 '>
+			<blockquote>{{instance.content|linebreaks}}</blockquote><br>
+			<hr>
+			<br>
+			<div>
+				<p class="lead">Comments</p>
+				<form id="comment-form" method="POST" action="{% url 'posts:detail' instance.slug %}">
+					{% csrf_token %}
+					{{form|crispy}}
+					<input type="submit" value="Post Comment" class="btn btn-default">
+				</form>
+				<hr>
+				<div id="new_comment"></div>
+				{% for comment in comments %}
+				<div>
+					<blockquote>
+						<p>{{comment.content}}</p>
+						<footer>via {{ comment.user|title }} | {{ comment.timestamp|timesince }} ago</footer>
+					</blockquote>
+				<hr>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
