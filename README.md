@@ -1,7 +1,7 @@
 # django-blog
 A complete blogging application with user authentication and authorization, dashboard, comments and responsive design.
 
-# features:
+# Objective & features:
 * Blog home page where users can see all the blogs, login and logout options. 
 * Users can only view the limited details of each blog. For advance features like to create post and comment on any post, they must need to register and login.
 * Register new user, login and logout sessions. The Django authentication system is being used handles both authentication and authorization.
@@ -13,6 +13,16 @@ A complete blogging application with user authentication and authorization, dash
 * Slide in effects on scrolldown from left to right.
 * Responsive design for any screensize.
 * Scalable pagination to display only three post at single page with navigation bar.
+
+# Javascript & JQuery animations and Ajax calls.
+* JQuery Datepicker calendar populate current month and days.
+* Navbar stays at the top as we scroll down.
+* Blog section slide in and visible when scroll the page.
+* Heading animations.
+* Onclick different options, dashboard Status changed without reloading page using $Ajax.
+* Post Create Form display using $Ajax & disable blank submit.
+* Back to the top button appears as we scroll down, onclick, back to top.
+* $Ajax to update comments without refreshing the page.
 
 # Steps to run:
 
