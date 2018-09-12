@@ -5,7 +5,7 @@ A complete blogging application with user authentication and authorization, dash
 * Blog home page where users can see all the blogs, login and logout options. 
 * Users can only view the limited details of each blog. For advance features like to create post and comment on any post, they must need to register and login.
 * Register new user, login and logout sessions. The Django authentication system is being used handles both authentication and authorization.
-* @Login_required decoraters is being used to only allowed logged in users to view dashboard, create post and comment.
+* @Login_required decoraters is being used to only allow logged in users to view dashboard, create post and comment.
 * Create and edit post.
 * Custom dashboard for each user to create and view draft and future date posts.
 * Django messaging framework to display custom messages.
