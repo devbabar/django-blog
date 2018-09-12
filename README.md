@@ -6,6 +6,7 @@ A complete blogging application with user authentication and authorization, dash
 * Users can only view the limited details of each blog. For advance features like to create post and comment on any post, they must need to register and login.
 * Register new user, login and logout sessions. The Django authentication system is being used handles both authentication and authorization.
 * @Login_required decoraters is being used to only allowed logged in users to view dashboard, create post and comment.
+* Create and edit post.
 * Custom dashboard for each user to create and view draft and future date posts.
 * Django messaging framework to display custom messages.
 * A dynamic search engine which used optimized query sets “Q” to filter from title, content, user’s first and last names. If no match found, it will display a message "Sorry No Result Found, Try Again..!”.
@@ -137,3 +138,25 @@ A dynamic commenting functionality enable users to comment at any post once they
 <p align="center">
   <img src="src/screenshots/comment_bx.png" width="800px" height="400px">
 </p>
+
+# ------------- Selenium Automated Test -----------------
+Selenium is designed to automate web browser interaction, so scripts can automatically perform the same interactions that any user can perform manually. Selenium can perform any sort of automated interaction, but was originally intended and is primarily used for automated web application testing.
+
+### Goals.
+* Registration with correct credentials.
+* Test Login and Logout functions.
+* Access to Dashboard and Create Post.
+* Test @login_required decorator to delete the post.
+* Edit the existing post, update title, content and date.
+* Test Draft Post & Future Post buttons.
+
+# ------------- Unittest ------------------
+### User_Form_Test:
+* SignUpForm with complete and blank fields.
+* LoginForm with complete and blank fields.
+
+### User_View_Test:
+* login_view with valid & invalid credentials.
+* Access Dashboard with and without logged in user, @login_required decorator.
+* Create Post with and without logged in user, @login_required decorator.
+
